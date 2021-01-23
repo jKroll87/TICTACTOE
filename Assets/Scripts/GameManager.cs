@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager sharedInstance = null;
-    public GameObject[] pieces;
+    public GameObject[] pieces = new GameObject[2];
     public GameObject currentPiece;
-    int pieceIdx;
+    public int pieceIdx;
     enum PieceState {
         none = 0, player = 1, AI = 2
     }
@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     
     public bool isEnd;
 
+    public Image playerScoreBoard;
+    public Image AIScoreBoard;
+
+    Sprite[] scoreBoardSprite = new Sprite[2];
+
     void Awake()
     {
         if (sharedInstance != null && sharedInstance != null)
@@ -40,6 +45,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Init();
+        scoreBoardSprite[0] = Resources.Load<Sprite>("Sprites/ScoreBoard1");
+        scoreBoardSprite[1] = Resources.Load<Sprite>("Sprites/ScoreBoard2");
         SetRandomCurrentPiece();
     }
 
@@ -64,28 +71,37 @@ public class GameManager : MonoBehaviour
         if (pieceIdx == 0)
         {
             state.text = "Player Turn";
+            playerScoreBoard.sprite = scoreBoardSprite[0];
+            AIScoreBoard.sprite = scoreBoardSprite[1];
         }
         else
         {
             state.text = "AI Turn";
+            playerScoreBoard.sprite = scoreBoardSprite[1];
+            AIScoreBoard.sprite = scoreBoardSprite[0];
         }
     }
 
     public void ChangePiece()
     {
-        currentPiece = pieces[(++pieceIdx) % 2];
+        pieceIdx = (++pieceIdx) % 2;
+        currentPiece = pieces[pieceIdx];
         NextTurn();
     }
 
     public void NextTurn()
     {
-        if (state.text == "Player Turn")
+        if (state.text == "AI Turn")
         {
-            state.text = "AI Turn";
+            state.text = "Player Turn";
+            playerScoreBoard.sprite = scoreBoardSprite[0];
+            AIScoreBoard.sprite = scoreBoardSprite[1];
         }
         else
         {
-            state.text = "Player Turn";
+            state.text = "AI Turn";
+            playerScoreBoard.sprite = scoreBoardSprite[1];
+            AIScoreBoard.sprite = scoreBoardSprite[0];
         }
     }
 
@@ -115,7 +131,7 @@ public class GameManager : MonoBehaviour
         {
             if (board[0, i] == board[i, 1] && board[i, 1] == board[i, 2])
             {
-                currentWinner = (WinnerState)board[i, 0];
+                currentWinner = (WinnerState)board[0, i];
                 return;
             }
         }
@@ -170,6 +186,10 @@ public class GameManager : MonoBehaviour
 
     void UpdateScore(WinnerState winner)
     {
+        if (winner == WinnerState.none)
+        {
+            return;
+        }
         if (winner == WinnerState.player)
         {
             playerScore.text = (int.Parse(playerScore.text) + 1).ToString();
@@ -177,6 +197,17 @@ public class GameManager : MonoBehaviour
         else if (winner == WinnerState.AI)
         {
             AIScore.text = (int.Parse(AIScore.text) + 1).ToString();
+        }
+    }
+
+    public void DebugBoard()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Debug.Log(board[i, j]);
+            }
         }
     }
 }

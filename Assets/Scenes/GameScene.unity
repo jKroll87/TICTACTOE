@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306196}
     m_Modifications:
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
+      propertyPath: tileIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3878837929170705550, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
       propertyPath: m_Name
@@ -311,6 +316,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306196}
     m_Modifications:
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
+      propertyPath: tileIndex
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3878837929170705550, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
       propertyPath: m_Name
@@ -923,6 +933,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
+      propertyPath: tileIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
       propertyPath: gameManagerObject
       value: 
       objectReference: {fileID: 1455573538}
@@ -1075,6 +1090,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306196}
     m_Modifications:
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
+      propertyPath: tileIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3878837929170705550, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
       propertyPath: m_Name
@@ -1308,6 +1328,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306196}
     m_Modifications:
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
+      propertyPath: tileIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3878837929170705550, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
       propertyPath: m_Name
@@ -1383,6 +1408,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306196}
     m_Modifications:
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
+      propertyPath: tileIndex
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3878837929170705550, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
       propertyPath: m_Name
@@ -1498,11 +1528,14 @@ MonoBehaviour:
   - {fileID: 91625828972342559, guid: 8d744ccdb2f080342b33252fc47ff46f, type: 3}
   - {fileID: 6658243050539275801, guid: 350c603dff6025f449ae85f25a73e276, type: 3}
   currentPiece: {fileID: 0}
+  pieceIdx: 0
   currentWinner: 0
   state: {fileID: 940819887}
   playerScore: {fileID: 1536911640}
   AIScore: {fileID: 1546594033}
   isEnd: 0
+  playerScoreBoard: {fileID: 2089393735}
+  AIScoreBoard: {fileID: 727056229}
 --- !u!1001 &1502889939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1510,6 +1543,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306196}
     m_Modifications:
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
+      propertyPath: tileIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3878837929170705550, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
       propertyPath: m_Name
@@ -1741,6 +1779,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306196}
     m_Modifications:
+    - target: {fileID: 2854365628393037946, guid: c27459157fc15de46974f73cd928e72f,
+        type: 3}
+      propertyPath: tileIndex
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3878837929170705550, guid: c27459157fc15de46974f73cd928e72f,
         type: 3}
       propertyPath: m_Name

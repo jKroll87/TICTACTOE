@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    GameManager gameManager;
+
     Camera camera;
     Vector3 mousePosition;
     float maxDistance = 15f;
     
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         camera = GetComponent<Camera>();
     }
 
@@ -34,7 +37,12 @@ public class CameraController : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Tile"))
             {
                 //hit.transform.GetComponent<SpriteRenderer>().color = Color.red;
-                hit.collider.gameObject.GetComponent<TileController>().SpawnPiece();
+                int index = hit.collider.gameObject.GetComponent<TileController>().tileIndex;
+                
+                if (gameManager.board[index / 3, index % 3] == 0)
+                {
+                    hit.collider.gameObject.GetComponent<TileController>().SpawnPiece();
+                }
             }
         }
     }
