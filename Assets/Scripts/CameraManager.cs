@@ -2,17 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
-    GameManager gameManager;
+    [Header("Singleton")]
+    public static CameraManager sharedInstance = null;
 
+    [Header("GameManager")]
+    GameManager gameManager;
+    PieceManager pieceManager;
+
+    [Header("Camera")]
     Camera camera;
     Vector3 mousePosition;
-    float maxDistance = 15f;
-    
+    float maxDistance = 15.0f;
+
+    void Awake()
+    {
+        Singleton();
+    }
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pieceManager = GameObject.Find("GameManager").GetComponent<PieceManager>();
+
         camera = GetComponent<Camera>();
     }
 
@@ -21,6 +34,18 @@ public class CameraController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray();
+        }
+    }
+
+    void Singleton()
+    {
+        if (sharedInstance != null && sharedInstance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            sharedInstance = this;
         }
     }
 
@@ -36,12 +61,9 @@ public class CameraController : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Tile"))
             {
-                //hit.transform.GetComponent<SpriteRenderer>().color = Color.red;
-                int index = hit.collider.gameObject.GetComponent<TileController>().tileIndex;
-                
-                if (gameManager.board[index / 3, index % 3] == 0)
+                if (gameManager.isStop == false)
                 {
-                    hit.collider.gameObject.GetComponent<TileController>().SpawnPiece();
+                    pieceManager.SpawnPiece(hit.collider.gameObject);
                 }
             }
         }

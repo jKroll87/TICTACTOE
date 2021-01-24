@@ -1491,6 +1491,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1455573539}
   - component: {fileID: 1455573540}
+  - component: {fileID: 1455573541}
+  - component: {fileID: 1455573543}
+  - component: {fileID: 1455573542}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1524,18 +1527,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adc928e24aa4d24a8c02d820a1bf84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieces:
+  currentWinner: 0
+  isEnd: 0
+--- !u!114 &1455573541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455573538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a42adcf9c03c37408800191a858e914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piecePrefabs:
   - {fileID: 91625828972342559, guid: 8d744ccdb2f080342b33252fc47ff46f, type: 3}
   - {fileID: 6658243050539275801, guid: 350c603dff6025f449ae85f25a73e276, type: 3}
+  pieceIndex: 0
   currentPiece: {fileID: 0}
-  pieceIdx: 0
-  currentWinner: 0
-  state: {fileID: 940819887}
-  playerScore: {fileID: 1536911640}
-  AIScore: {fileID: 1546594033}
-  isEnd: 0
-  playerScoreBoard: {fileID: 2089393735}
-  AIScoreBoard: {fileID: 727056229}
+--- !u!114 &1455573542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455573538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef5ad84a06e23d41a36c2851fe1d613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1455573543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455573538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d38c310fac5b5048a80b7aebbebaed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateText: {fileID: 940819887}
+  playerScoreText: {fileID: 1536911640}
+  AIScoreText: {fileID: 1546594033}
+  playerScoreBoardImage: {fileID: 2089393735}
+  AIScoreBoardImage: {fileID: 727056229}
+  scoreBoardSprite:
+  - {fileID: 21300000, guid: 802709842de264245a09c59d281a341a, type: 3}
+  - {fileID: 21300000, guid: eff9ded9585e9f0408a3675210e81627, type: 3}
 --- !u!1001 &1502889939
 PrefabInstance:
   m_ObjectHideFlags: 0
