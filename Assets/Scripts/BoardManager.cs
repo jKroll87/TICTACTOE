@@ -14,7 +14,6 @@ public class BoardManager : MonoBehaviour
         none = 0, player = 1, AI = 2, tie = 3
     }
     
-    
     public void BoardInit()
     {
         for (int i = 0; i < 3; i++)

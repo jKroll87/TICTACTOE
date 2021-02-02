@@ -51,6 +51,23 @@ public class PieceManager : MonoBehaviour
         return "error";
     }
 
+    public string GetCurrentWinnerName()
+    {
+        switch (gameManager.currentWinner)
+        {
+            case GameManager.WinnerState.none:
+                return "none";
+            case GameManager.WinnerState.player:
+                return "player";
+            case GameManager.WinnerState.AI:
+                return "AI";
+            case GameManager.WinnerState.tie:
+                return "tie";
+            default:
+                return "error";
+        }
+    }
+
     void PieceObjectPooling()
     {
         if (OPiecePool == null)
@@ -125,8 +142,8 @@ public class PieceManager : MonoBehaviour
             else
             {
                 gameManager.Stop();
-                UIManager.SetWinStateText(GetCurrentPieceName());
-                UIManager.UpdateScore(GetCurrentPieceName());
+                UIManager.SetWinStateText(GetCurrentWinnerName());
+                UIManager.UpdateScore(GetCurrentWinnerName());
             }
         }
     }
