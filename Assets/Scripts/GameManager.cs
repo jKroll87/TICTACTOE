@@ -59,11 +59,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Init()
+    public void Init()
     {
         isStop = false;
         boardManager.BoardInit();
         UIManager.SetStateText(pieceManager.GetCurrentPieceName());
+        pieceManager.DisablePieces();
     }
 
     public void Stop()

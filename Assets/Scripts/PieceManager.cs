@@ -84,12 +84,11 @@ public class PieceManager : MonoBehaviour
             GameObject OPieceObject = Instantiate(piecePrefabs[0]);
             GameObject XPieceObject = Instantiate(piecePrefabs[1]);
 
-            OPieceObject.SetActive(false);
             OPiecePool.Add(OPieceObject);
-
-            XPieceObject.SetActive(false);
             XPiecePool.Add(XPieceObject);
         }
+
+        DisablePieces();
     }
 
     void SetRandomCurrentPiece()
@@ -153,7 +152,7 @@ public class PieceManager : MonoBehaviour
         pieceIndex = (pieceIndex + 1) % 2;
     }
 
-    void DisablePieces()
+    public void DisablePieces()
     {
         for (int i = 0; i < poolSize; i++)
         {
